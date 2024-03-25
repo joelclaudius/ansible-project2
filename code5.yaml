@@ -1,0 +1,27 @@
+---
+- hosts: ws
+  become: yes
+  gather_facts: no
+  ignore_errors: yes
+  tasks:
+    - name:  Modify config file
+      lineinfile:
+        path: /etc/selinux/semanage.conf
+        regexp: '^module-store ='
+        line: 'module-store = false'
+
+    - name:  Insert a line after 
+      lineinfile:
+        path: /etc/selinux/semanage.conf
+        # regexp: '^module-store ='
+        insertafter: '^module-store ='
+        line: 'module-store = claudius'
+
+
+    - name:  Delete a line
+      lineinfile:
+        path: /etc/selinux/semanage.conf
+        state: absent
+        regexp: '^module-store = false'
+
+    #This is to test jenkins CI/CD pipeline

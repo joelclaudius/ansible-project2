@@ -1,0 +1,34 @@
+---
+- hosts: db
+  become: yes
+  gather_facts: no
+  ignore_errors: yes
+  tasks:
+    - name: Download nexus artificats
+      get_url:
+        url: "http://198.58.119.40:8081/repository/jackie/bioMedical-0.0.2-SNAPSHOT.jar"
+        dest: /tmp
+        url_username: admin
+        url_password: devops
+
+    # - name: Download nexus artificats
+    #   uri:
+    #     url:  http://198.58.119.40:8081/repository/jackie/bioMedical-0.0.2-SNAPSHOT.jar
+    #     dest: /tmp
+    #     url_username: admin
+    #     url_password: devops
+
+    # - name: Install lxml
+    #   yum:
+    #     name: python-lxml
+    #     state: present
+
+    # - name: Download nexus artificats
+    #   maven_artifact:
+    #     group_id: dev
+    #     artifact_id: bioMedical
+    #     version: 0.0.4-SNAPSHOT
+    #     repository_url: http://198.58.119.40:8081/repository/jackie
+    #     dest: /tmp/claudius.jar
+    #     username: admin
+    #     password: devops

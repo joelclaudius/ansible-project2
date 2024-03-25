@@ -1,0 +1,63 @@
+---
+- hosts: all
+  become: yes
+  gather_facts: no
+  ignore_errors: yes
+  tasks:
+    - name: install softwares
+      package:
+        state: present
+        name: "{{ item }}"
+      with_items:
+          - httpd
+          - git
+          - vim
+          - tree
+          - wget
+          - curl
+          - finger
+          - telnet
+          - ntp
+    - name: create group
+      group:
+        name: mygroup
+        state: present
+
+    - name: create user
+      user:
+        name: claudius
+        group: mygroup
+        state: present
+
+      tags: 
+        - create_user
+
+- hosts: db
+  become: yes
+  gather_facts: no
+  ignore_errors: yes
+  tasks:
+    - name: install apache
+      yum:
+        name: httpd
+        state: present
+
+    - name: start apache
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+
+      tags: 
+        - install_apache
+
+    - name: copy index.html
+      copy:
+        src: index.html
+        dest: /var/www/html/index.html
+        mode: 0644
+
+      tags: 
+        - copy_index
+
+    

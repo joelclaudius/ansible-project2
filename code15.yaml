@@ -1,0 +1,14 @@
+---
+- hosts: jenkins
+  become: yes
+  gather_facts: no
+  ignore_errors: yes
+  tasks:
+    - name: create user
+      user:
+        name: claudius
+        group: mygroup
+        state: present
+
+
+  #webhook
