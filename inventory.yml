@@ -1,13 +1,13 @@
 db:
   hosts:
-    3.239.235.255:
+    172.31.0.188:
   vars:
     ansible_ssh_private_key_file: "~/ansible-key.pem"
     ansible_user: "ec2-user"
 
 ws:
   hosts:
-    34.229.50.113:
+    172.31.43.54:
   vars:
     ansible_ssh_private_key_file: "~/ansible-key.pem"
     ansible_user: "ubuntu"
