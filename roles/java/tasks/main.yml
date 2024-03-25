@@ -1,0 +1,6 @@
+---
+- name: Install Java 21
+  apt: name={{item}} state=latest
+  loop:
+    - openjdk-21-jre
+    - ca-certificates

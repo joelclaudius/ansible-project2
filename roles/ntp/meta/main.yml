@@ -1,0 +1,23 @@
+---
+galaxy_info:
+  role_name: ntpsec
+  author: "shaneholloman"
+  description: ntpsec for Linux specifically debian family at this time.
+  company: "shaneholloman"
+  license: "license (Unlicense)"
+  min_ansible_version: "2.12"
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - jammy
+    - name: Debian
+      versions:
+        - bookworm
+
+  galaxy_tags:
+    - ntpsec
+    - ntp
+    - ntpd
+
+dependencies: []

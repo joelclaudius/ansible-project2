@@ -1,0 +1,15 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: Claudius Joel
+  description: Java 21 Installation for Debian-based OSes
+  company: "ke-DevOps"
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.10
+  platforms:
+  - name: Ubuntu
+    versions:
+    - all
+  galaxy_tags:
+    - java
